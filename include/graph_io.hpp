@@ -15,7 +15,7 @@ namespace rzq{
 namespace basic{
 
 
-int ReadRoadmapFromFile(std::string dist_data_fname, std::string time_data_fname, int cost_dim, Roadmap* out) ;
+int ReadRoadmapFromFile(std::vector<std::string> edge_cost_fnames, bool add_degree_cost, Roadmap* out) ;
 
 int SaveResultToFile(std::string fname, double time, search::EMOAResult* res);
 
