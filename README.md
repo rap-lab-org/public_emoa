@@ -27,19 +27,30 @@ The code is distributed for academic and non-commercial use.
   * `cmake ..` (You can specify the build type you like by adding additional args)
   * `make`
 * Run example in `./test_emoa `
-* Run example via command-line interface (TODO fill in or refine the text below)
+* Run example via command-line interface
   * `./run_emoa 2 data/graph1.txt data/graph2.txt data/result.txt`
-* General usage of the command-line interface (TODO fill in or refine the text below)
-  * `./run_emoa (arg1 M) (arg2 graph_1) (arg3 graph_2) ... ((arg(M+1) graph_M)) (arg(M+2) result_file_name) `
+* General usage of the command-line interface
+  * `./run_emoa (arg1 M) (arg2 graph1_path) (arg3 graph2_path) ... ((arg(M+1) graphM_path)) (arg(M+2) result_path) `
   * arg1 M = the number of objectives for the input instance
-  * arg2~arg(M+1) = totally M graphs, each specify one type of edge cost. The graph file structure is described below.
-  * arg(M+2) = the name/path of the result file to be output.
+  * arg2~arg(M+1) = the paths to M files that describe the graph, where each file contains the edge weights for one type of edge cost in the graph (details about file structure are specified below)
+  * arg(M+2) = the path of the result file
 * For help info `./run_emoa -h` or `./run_emoa --help`
 
-### Graph file specification (TODO fill in or refine the text below)
+### Graph file specification
 
-The graph file follows a similar format as DIAMCS ...
+Graphs are directed graphs labeled from 1~*n*, where *n* is the number of vertices.
 
-### Result file specifiction (TODO fill in or refine the text below)
+If parallel edges are specified in the graph file, only the lexico-smallest edge is used.
 
-The result file ...
+Graph files must follow the same format described by [DIMACS](http://www.diag.uniroma1.it//~challenge9/format.shtml#graph).
+
+Graph files used in the same run must correspond to each other line-by-line.
+
+### Result file specifiction
+
+Result file contains 7 lines of metadata (time, n_generated, n_expanded, n_domCheck, rt_initHeu, rt_search, N). N is the number of solutions found.
+
+Each of the N solutions are then listed in sets of three lines:
+1. The first line contains `Label: {label_id}`, where the label_id identifies the solution
+2. The second line contains the (space-separated) cost vector of the solution
+3. The third line contains the (space-separated) path of vertices for the solution
