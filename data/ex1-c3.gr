@@ -1,0 +1,16 @@
+c This is the third cost file for example 1
+p sp 5 14
+a 1 2 1
+a 2 1 1
+a 1 3 5
+a 3 1 5
+a 2 3 2
+a 3 2 2
+a 3 4 2
+a 4 3 2
+a 3 5 5
+a 5 3 5
+a 4 5 1
+a 5 4 1
+a 1 5 16
+a 5 1 16
