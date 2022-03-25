@@ -6,6 +6,7 @@
 
 #include "api.hpp"
 #include "graph_io.hpp"
+#include "debug.hpp"
 #include <iostream>
 #include <string>
 
@@ -29,10 +30,14 @@ int main( int argc, char *argv[] ) {
     std::cout << "[INFO] input arg[" << i << "]=" << argv[i] << std::endl;
   }
 
-  int M = std::stoi(argv[1]);
+  long vo = std::stol(argv[1]);
+  long vd = std::stol(argv[2]);
+  double time_limit = std::stod(argv[3]);
+  int M = std::stoi(argv[4]);
 
-  if (argc != M + 3) {
-    std::cout << "M=" << M << ", expected M+3 (" << M + 3 << ") arguments, received " << argc << std::endl;
+  int expected_args = M + 6;
+  if (argc != expected_args) {
+    std::cout << "M=" << M << ", expected M+6 (" << expected_args << ") arguments, received " << argc << std::endl;
     return -1;
   }
 
@@ -40,9 +45,13 @@ int main( int argc, char *argv[] ) {
   std::string result_fname = argv[argc - 1];
   std::vector<std::string> input_fnames;
   for (int i = 0; i < M; i++) {
-    input_fnames.push_back(argv[i + 2]);
+    input_fnames.push_back(argv[i + 5]);
   }
 
+
+  // timer for loading graph files
+  rzq::basic::SimpleTimer timer;
+  timer.Start();
 
   rzq::basic::Roadmap g;
   {
@@ -54,6 +63,8 @@ int main( int argc, char *argv[] ) {
     }
   }
 
+  double load_graph_time = timer.GetDurationSecond();
+
   // do some print and verification to make sure the generated graph is correct.
   std::cout << "num_nodes: " << g.GetNumberOfNodes() << std::endl;
   std::cout << "num_edges: " << g.GetNumberOfEdges() << std::endl;
@@ -63,17 +74,10 @@ int main( int argc, char *argv[] ) {
   // ####### Test 2 - run planner ######### //
   // ######################################### //
 
-  long vo = 1; // starting node in the graph.
-  long vd = 5; // destination node id in the graph.
-  double time_limit = 60; // e.g. one minute search time limit.
-
-  // rzq::basic::SimpleTimer timer;
-  // timer.Start();
-
   rzq::search::EMOAResult res;
   rzq::search::RunEMOA(&g, vo, vd, time_limit, &res);
 
-  rzq::basic::SaveResultToFile(result_fname, -1, &res);
+  rzq::basic::SaveResultToFile(result_fname, load_graph_time, &res);
 
   return 1;
 };

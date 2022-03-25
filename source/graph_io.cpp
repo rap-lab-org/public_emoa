@@ -103,7 +103,7 @@ int SaveResultToFile(std::string fname, double time, search::EMOAResult* res) {
 		return -1;
   }
 
-	fout << "time: " << time << std::endl;
+	fout << "graph_load_time: " << time << std::endl;
   fout << "n_generated: " << res->n_generated << std::endl;
   fout << "n_expanded: " << res->n_expanded << std::endl;
   fout << "n_domCheck: " << res->n_domCheck << std::endl;

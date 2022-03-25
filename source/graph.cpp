@@ -358,6 +358,10 @@ long Roadmap::GetNumberOfEdges() {
   return _num_edges;
 }
 
+/*
+Adds degree cost as the 'cost_index'th element of the cost vector
+Degree cost is set to 2 if degree is >= 4, 1 otherwise (used to reduce number of Pareto optimal solutions)
+*/
 void Roadmap::AddDegreeCost(int cost_index) {
   for (const auto& kv1: _adjlist) {
     long u = kv1.first;
@@ -365,11 +369,10 @@ void Roadmap::AddDegreeCost(int cost_index) {
       long v = kv2.first;
       long cost = _adjlist[u].size() + _adjlist[v].size();
 
-      // NOTE: RR adds this, since directly adding degree cost makes the computation very expensive. @2022-03-05
       cost = cost/2; // average degree.
       if (cost < 0) {
         throw std::runtime_error("[ERROR] AddDegreeCost, negative cost !?");
-      } 
+      }
       long cost_value = 1;
       if (cost >= 4) {
         cost_value = 2;

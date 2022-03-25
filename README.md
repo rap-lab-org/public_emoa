@@ -28,12 +28,16 @@ The code is distributed for academic and non-commercial use.
   * `make`
 * Run example in `./test_emoa `
 * Run example via command-line interface
-  * `./run_emoa 2 data/graph1.txt data/graph2.txt data/result.txt`
+  * `./run_emoa 1 5 60 3 data/ex1-c1.txt data/ex1-c2.txt data/ex1-c3.txt data/result.txt`
+  * Runs EMOA\* on 3-cost graph (edge weights detailed in `data/ex1-c1.txt`, `data/ex1-c2.txt`, `data/ex1-c3.txt`) to find solutions from node 1 to node 5 with a 60 second time limit, and saves results into `data/result.txt`
 * General usage of the command-line interface
-  * `./run_emoa (arg1 M) (arg2 graph1_path) (arg3 graph2_path) ... ((arg(M+1) graphM_path)) (arg(M+2) result_path) `
-  * arg1 M = the number of objectives for the input instance
-  * arg2~arg(M+1) = the paths to M files that describe the graph, where each file contains the edge weights for one type of edge cost in the graph (details about file structure are specified below)
-  * arg(M+2) = the path of the result file
+  * `./run_emoa (arg1 v_start) (arg2 v_dest) (arg3 time_limit) (arg3 M) (arg4 graph1_path) (arg5 graph2_path) ... ((arg(M+3) graphM_path)) (arg(M+4) result_path) `
+  * arg1 v_start = the starting node
+  * arg2 v_dest = the destination node
+  * arg3 time_limit = the time limit for EMOA\*
+  * arg4 M = the number of objectives for the input instance
+  * arg5~arg(M+4) = the paths to M files that describe the graph, where each file contains the edge weights for one type of edge cost in the graph (details about file structure are specified below)
+  * arg(M+5) = the path of the result file
 * For help info `./run_emoa -h` or `./run_emoa --help`
 
 ### Graph file specification
@@ -48,7 +52,7 @@ Graph files used in the same run must correspond to each other line-by-line.
 
 ### Result file specifiction
 
-Result file contains 7 lines of metadata (time, n_generated, n_expanded, n_domCheck, rt_initHeu, rt_search, N). N is the number of solutions found.
+Result file contains 7 lines of metadata (graph_load_time, n_generated, n_expanded, n_domCheck, rt_initHeu, rt_search, N). N is the number of solutions found.
 
 Each of the N solutions are then listed in sets of three lines:
 1. The first line contains `Label: {label_id}`, where the label_id identifies the solution
