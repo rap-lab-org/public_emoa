@@ -4,7 +4,7 @@ C++ Implementation of Enhanced Multi-Objective A\* (EMOA\*) Algorithm.
 
 The code is distributed for academic and non-commercial use.
 
-### Requirements
+## Requirements
 
 * We use CMake (3.16.3) and Make (4.2.1) to compile the code. Lower or higher version may also work.
 
@@ -58,3 +58,17 @@ Each of the N solutions are then listed in sets of three lines:
 1. The first line contains `Label: {label_id}`, where the label_id identifies the solution
 2. The second line contains the (space-separated) cost vector of the solution
 3. The third line contains the (space-separated) path of vertices for the solution
+
+
+## Others
+
+### References
+
+* [1] [Enhanced Multi-Objective A* Using Balanced Binary Search Trees](https://arxiv.org/pdf/2202.08992.pdf).\
+  Zhongqiang Ren, Richard Zhan, Sivakumar Rathinam, Maxim Likhachev and Howie Choset.
+
+### Development Team
+
+Contributors: [Zhongqiang (Richard) Ren](https://wonderren.github.io/), Richard Zhan.
+
+Advisors: Prof. Sivakumar Rathinam (TAMU), Prof. Maxim Likhachev (CMU), Prof. Howie Choset (CMU).
