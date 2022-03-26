@@ -1,8 +1,8 @@
 # public_emoa
 
-C++ Implementation of Enhanced Multi-Objective A\* (EMOA\*) Algorithm.
+This work addresses a Multi-Objective Shortest Path Problem (MO-SPP) on a graph where the goal is to find a set of Pareto-optimal solutions from a start node to a destination in the graph. This repo provides a C++ implementation of Enhanced Multi-Objective A\* (EMOA\*) Algorithm, which is guaranteed to find all cost-unique Pareto-optimal solutions and runs faster than existing techniques by up to an order of magnitude. The code is distributed for academic and non-commercial use. More technical details can be found in [1].
 
-The code is distributed for academic and non-commercial use.
+* <img src="https://github.com/wonderren/wonderren.github.io/blob/master/images/fig_emoa_NY17.png" alt="" align="left" hspace="20" style=" border: #FFFFFF 2px none;">
 
 ## Requirements
 
