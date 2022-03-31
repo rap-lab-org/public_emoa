@@ -31,7 +31,7 @@ The code is distributed for academic and non-commercial use.
   * `./run_emoa 1 5 60 3 data/ex1-c1.txt data/ex1-c2.txt data/ex1-c3.txt data/result.txt`
   * Runs EMOA\* on 3-cost graph (edge weights detailed in `data/ex1-c1.txt`, `data/ex1-c2.txt`, `data/ex1-c3.txt`) to find solutions from node 1 to node 5 with a 60 second time limit, and saves results into `data/result.txt`
 * General usage of the command-line interface
-  * `./run_emoa (arg1 v_start) (arg2 v_dest) (arg3 time_limit) (arg3 M) (arg4 graph1_path) (arg5 graph2_path) ... ((arg(M+3) graphM_path)) (arg(M+4) result_path) `
+  * `./run_emoa (arg1 v_start) (arg2 v_dest) (arg3 time_limit) (arg4 M) (arg5 graph1_path) (arg6 graph2_path) ... ((arg(M+4) graphM_path)) (arg(M+5) result_path)`
   * arg1 v_start = the starting node
   * arg2 v_dest = the destination node
   * arg3 time_limit = the time limit for EMOA\*

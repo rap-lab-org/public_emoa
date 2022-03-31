@@ -83,5 +83,5 @@ int main( int argc, char *argv[] ) {
 };
 
 void print_help_message () {
-  std::cout << "./run_emoa (arg1 M) (arg2 graph1_path) (arg3 graph2_path) ... ((arg(M+1) graphM_path)) (arg(M+2) result_path)" << std::endl;
+  std::cout << "./run_emoa (arg1 v_start) (arg2 v_dest) (arg3 time_limit) (arg4 M) (arg5 graph1_path) (arg6 graph2_path) ... ((arg(M+4) graphM_path)) (arg(M+5) result_path)" << std::endl;
 }
