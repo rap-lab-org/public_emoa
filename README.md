@@ -1,6 +1,15 @@
 # Enhanced Multi-Objective A* (EMOA*)
 
-This work addresses a Multi-Objective Shortest Path Problem (MO-SPP) on a graph where the goal is to find a set of Pareto-optimal solutions from a start node to a destination in the graph. This repo provides a C++ implementation of Enhanced Multi-Objective A\* (EMOA\*) Algorithm, which is guaranteed to find all cost-unique Pareto-optimal solutions and runs faster than existing techniques by up to an order of magnitude. The code is distributed for academic and non-commercial use. More technical details can be found in [[1](https://arxiv.org/pdf/2202.08992.pdf)].
+This work addresses a Multi-Objective Shortest Path Problem (MO-SPP) on a graph where the goal is to find a set of Pareto-optimal solutions from a start node to a destination in the graph. This repo provides a C++ implementation of Enhanced Multi-Objective A\* (EMOA\*) Algorithm, which is guaranteed to find all cost-unique Pareto-optimal solutions and runs faster than existing techniques by up to an order of magnitude. More technical details can be found in [[1](https://arxiv.org/pdf/2202.08992.pdf)].
+
+The code is distributed for academic and non-commercial use.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 <img src="https://github.com/wonderren/wonderren.github.io/blob/master/images/fig_emoa_NY17.png" alt="" align="middle" hspace="20" style=" border: #FFFFFF 2px none;">
 
@@ -20,7 +29,7 @@ This work addresses a Multi-Objective Shortest Path Problem (MO-SPP) on a graph 
 
 ## Instructions:
 
-### Run EMOA
+### Installation
 
 * Clone this repo
 * Compile this repo
@@ -29,7 +38,10 @@ This work addresses a Multi-Objective Shortest Path Problem (MO-SPP) on a graph 
   * `cmake ..` (You can specify the build type you like by adding additional args)
   * `make`
 * Run example in `./test_emoa `
-* Run example via command-line interface
+
+### Command-Line Interface (CLI)
+
+* Run example via command-line interface (CLI)
   * `./run_emoa 1 5 60 3 data/ex1-c1.txt data/ex1-c2.txt data/ex1-c3.txt data/result.txt`
   * Runs EMOA\* on 3-cost graph (edge weights detailed in `data/ex1-c1.txt`, `data/ex1-c2.txt`, `data/ex1-c3.txt`) to find solutions from node 1 to node 5 with a 60 second time limit, and saves results into `data/result.txt`
 * General usage of the command-line interface
@@ -41,6 +53,13 @@ This work addresses a Multi-Objective Shortest Path Problem (MO-SPP) on a graph 
   * arg5~arg(M+4) = the paths to M files that describe the graph, where each file contains the edge weights for one type of edge cost in the graph (details about file structure are specified below)
   * arg(M+5) = the path of the result file
 * For help info `./run_emoa -h` or `./run_emoa --help`
+
+### Preliminary Python API
+
+* We have also developed a simple Python wrapper based on the aforementioned CLI (by writing and reading files and call the CLI), which can be found in python/emoa_py_api.py
+* Run `cd python/` and then run `python3 emoa_py_api.py`, a toy example using the python wrapper can be executed.
+* The current Python wrapper is only applicable to grid-like map. For general usage, please use the CLI.
+* More APIs may be developed in the future.
 
 ### Graph file specification
 
