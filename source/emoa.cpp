@@ -295,10 +295,10 @@ int EMOA::Search(long vo, long vd, double time_limit) {
       }
       continue;
     }
-    if (l.v == vd) {
-      // do nothing, frontier at vd is the same as solution set.
-    }
     _UpdateFrontier(l);
+    if (l.v == vd) {
+      continue;
+    }
     if (DEBUG_EMOA > 1) {
       std::cout << "[DEBUG] ### Exp. " << l << std::endl;
     }
