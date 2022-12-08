@@ -291,7 +291,7 @@ int EMOA::Search(long vo, long vd, double time_limit) {
     // ## lazy dominance check ##
     if ( _FrontierCheck(l) || _SolutionCheck(l) ) {
       if (DEBUG_EMOA > 1) {
-        std::cout << "[DEBUG] F- AND S-check, dom, cont..." << std::endl;
+        std::cout << "[DEBUG] F- AND S-check lazy, dom, cont..." << std::endl;
       }
       continue;
     }
@@ -314,9 +314,9 @@ int EMOA::Search(long vo, long vd, double time_limit) {
       if (DEBUG_EMOA > 0) {
         std::cout << "[DEBUG] >>>> Loop v= " << u << " gen l' = " << l2 << std::endl;
       }
-      if (_FrontierCheck(l2)) {
+      if (_FrontierCheck(l2) || _SolutionCheck(l2) ) {
         if (DEBUG_EMOA > 1) {
-          std::cout << "[DEBUG] ----- F-Check, dom, cont..." << std::endl;
+          std::cout << "[DEBUG] ----- F- AND S-check gene, dom, cont..." << std::endl;
         }
         continue;
       }
