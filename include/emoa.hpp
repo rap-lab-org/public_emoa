@@ -74,7 +74,7 @@ struct EMOAResult {
 //////////////////////////////////////////////////////////////
 
 
-basic::CostVector _proj(basic::CostVector v) ;
+// basic::CostVector _proj(basic::CostVector v) ;
 
 
 /**
@@ -96,7 +96,7 @@ class TOATree : public basic::AVLTree<basic::CostVector>
 {
 public:
   TOATree() ;
-  ~TOATree() ;
+  virtual ~TOATree() ;
   virtual void Filter(basic::CostVector v) ;
   virtual void _rebuildTree(std::unordered_set<long> *skip_node);
 protected:
@@ -221,7 +221,7 @@ class EMOAKd : public EMOA
 {
 public:
   EMOAKd();
-  ~EMOAKd();
+  virtual ~EMOAKd();
 protected:
   // virtual basic::CostVector _Heuristic(long v) override;
   /**
