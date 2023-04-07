@@ -43,7 +43,7 @@ SOFTWARE.
 
 * Run example via command-line interface (CLI)
   * `./run_emoa 1 5 60 3 data/ex1-c1.txt data/ex1-c2.txt data/ex1-c3.txt data/result.txt`
-  * Runs EMOA\* on 3-cost graph (edge weights detailed in `data/ex1-c1.txt`, `data/ex1-c2.txt`, `data/ex1-c3.txt`) to find solutions from node 1 to node 5 with a 60 second time limit, and saves results into `data/result.txt`
+  * Runs EMOA\* on 3-cost graph (edge weights detailed in `../data/ex1-c1.gr`, `../data/ex1-c2.gr`, `../data/ex1-c3.gr`) to find solutions from node 1 to node 5 with a 60 second time limit, and saves results into `data/result.txt`
 * General usage of the command-line interface
   * `./run_emoa (arg1 v_start) (arg2 v_dest) (arg3 time_limit) (arg4 M) (arg5 graph1_path) (arg6 graph2_path) ... ((arg(M+4) graphM_path)) (arg(M+5) result_path)`
   * arg1 v_start = the starting node
@@ -63,9 +63,11 @@ SOFTWARE.
 
 ### Graph file specification
 
-Graphs are directed graphs labeled from 1~*n*, where *n* is the number of vertices.
+The input graph is directed.
 
-If parallel edges are specified in the graph file, only the lexico-smallest edge is used.
+The node ID are within range 1~*n*, where *n* is the number of nodes in the graph. 
+
+Parallel edges are not allowed.
 
 Graph files must follow the same format described by [DIMACS](http://www.diag.uniroma1.it//~challenge9/format.shtml#graph).
 
