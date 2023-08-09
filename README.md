@@ -63,15 +63,23 @@ SOFTWARE.
 
 ### Graph file specification
 
-The input graph is directed.
-
-The node ID are within range 1~*n*, where *n* is the number of nodes in the graph. 
-
-Parallel edges are not allowed.
-
-Graph files must follow the same format described by [DIMACS](http://www.diag.uniroma1.it//~challenge9/format.shtml#graph).
-
-Graph files used in the same run must correspond to each other line-by-line.
+* The input graph is directed.
+* The node ID are within range 1~*n*, where *n* is the number of nodes in the graph. 
+* Parallel edges are not allowed.
+* Graph files must follow the same format described by [DIMACS](http://www.diag.uniroma1.it//~challenge9/format.shtml#graph).
+* Graph files used in the same run must correspond to each other line-by-line.
+ * In other words, it requires all cost files to have the same set of edges in the same order.
+For example:
+In c1 file, let’s say we have edges:
+a 0 1 26
+a 2 4 26
+a 3 5 114
+Then in c2 file, we also need to have edges:
+a 0 1 x
+a 2 4 y
+a 3 5 z
+Here, x,y,z are non-negative integer cost values. If, for example, edge (3,5) has cost zero, this edge also need to appear in the third place (i.e., the same place as in the c1 file) in c2 file, and has a value 0.
+Same rule applies to all cost files.
 
 ### Result file specifiction
 
