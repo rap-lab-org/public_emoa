@@ -93,7 +93,7 @@ Each of the N solutions are then listed in sets of three lines:
 3. The third line contains the (space-separated) path of vertices for the solution
 
 
-## Notes for Performance
+### Notes for Performance
 
 * The implementation of EMOA* (as well as the baselines as mentioned in the paper [1]) relies heavily on std::unordered_map from C++ STL for the purpose of easy implementation. Using other data structure such as std::vector (or simply arrays) can lead to significant improvement in performance than using std::unordered_map.
 
