@@ -99,8 +99,9 @@ Each of the N solutions are then listed in sets of three lines:
 
 ### References
 
-* [1] [Enhanced Multi-Objective A* Using Balanced Binary Search Trees](https://wonderren.github.io/files/ren22_emoa_socs.pdf).\
-  Zhongqiang Ren, Richard Zhan, Sivakumar Rathinam, Maxim Likhachev and Howie Choset.
+* [1] Enhanced Multi-Objective A* Using Balanced Binary Search Trees.\
+  Zhongqiang Ren, Richard Zhan, Sivakumar Rathinam, Maxim Likhachev and Howie Choset.\
+  [[Bibtex](https://wonderren.github.io/files/bibtex_ren22emoa.txt)][[Paper](../files/ren22_emoa_socs.pdf)]
 
 ### Development Team
 
