@@ -9,15 +9,19 @@
 #include <iostream>
 
 #include "graph.hpp"
-#include "emoa.hpp"
+// #include "emoa.hpp"
 
 namespace rzq{
 namespace basic{
 
 
-int ReadRoadmapFromFile(std::vector<std::string> edge_cost_fnames, bool add_degree_cost, Roadmap* out) ;
+// int LoadSparseGraphDIMAC(std::string dist_data_fname, std::string time_data_fname, int cost_dim, Roadmap* out) ;
 
-int SaveResultToFile(std::string fname, double time, search::EMOAResult* res);
+int LoadSparseGraphDIMAC(std::vector<std::string> edge_cost_fnames, SparseGraph* out) ;
+
+int LoadStartGoal(std::string benchmark_table_fname, std::vector<int>* sources, std::vector<int>* goals);
+
+int LoadCoordDIMAC(std::string coord_file, std::vector< std::vector<double> >* output) ;
 
 
 } // end namespace basic

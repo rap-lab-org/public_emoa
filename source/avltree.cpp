@@ -5,6 +5,7 @@
 
 #include "avltree.hpp"
 #include "graph.hpp"
+#include "vec_type.hpp"
 
 #include "signal.h"
 
@@ -270,6 +271,14 @@ AVLNode* AVLTree<DataType>::_insert(AVLNode* n, DataType k, long id0) {
     if (id0 < 0) {
       nn->id = _IdGen();
     }
+
+    #ifdef USE_STD_VECTOR_IMPL
+      if (nn->id >= _key.size()){
+        _key.resize(nn->id + 1);
+      }
+      _key[nn->id] = k; // store key
+    #endif
+
     _key[nn->id] = k; // store key
     _size++;
 
@@ -465,21 +474,29 @@ void AVLTreeCompileHelper() {
 };
 
 void AVLTreeInstantiation(){
-  AVLTreeCompileHelper<rzq::basic::CostVector>();
   AVLTreeCompileHelper<int>();
   AVLTreeCompileHelper<short>();
   AVLTreeCompileHelper<long>();
   AVLTreeCompileHelper<float>();
   AVLTreeCompileHelper<double>();
+  AVLTreeCompileHelper< std::vector<int> >();
+  AVLTreeCompileHelper< std::vector<short> >();
+  AVLTreeCompileHelper< std::vector<long> >();
+  AVLTreeCompileHelper< std::vector<float> >();
+  AVLTreeCompileHelper< std::vector<double> >();
 }
 
 
-template class AVLTree<rzq::basic::CostVector>;
 template class AVLTree<int>;
 template class AVLTree<short>;
 template class AVLTree<long>;
 template class AVLTree<float>;
 template class AVLTree<double>;
+template class AVLTree< std::vector<int> >;
+template class AVLTree< std::vector<short> >;
+template class AVLTree< std::vector<long> >;
+template class AVLTree< std::vector<float> >;
+template class AVLTree< std::vector<double> >;
 
 
 } // namespace basic
