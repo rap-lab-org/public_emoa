@@ -73,7 +73,7 @@ int LoadSparseGraphDIMAC(std::vector<std::string> edge_cost_fnames, SparseGraph*
 			// 	assert(false);
 			// }
 
-			out->AddEdge(u, v, cv);
+			out->AddArc(u, v, cv);
 		}
 	}
 	
